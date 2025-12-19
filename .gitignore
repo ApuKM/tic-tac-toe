@@ -1,0 +1,23 @@
+# Ignore all files ending with .log in all directories
+*.log
+
+# Ignore the entire 'build/' directory and everything within it
+build/
+
+# Ignore a specific file named 'config.local.json' in the root directory
+/config.local.json
+
+# Ignore all files in the 'temp' directory in the root
+/temp/*
+
+# Ignore the 'vendor/' directory, but include the 'vendor/important.txt' file
+vendor/
+!vendor/important.txt
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore Node.js specific folders and files (common example)
+node_modules/
+.env
