@@ -1,4 +1,5 @@
-import { useState } from "react";
+
+import { useGameStore } from "./store";
 
 function Square({ value, onSquareClick }) {
   return (
@@ -10,9 +11,12 @@ function Square({ value, onSquareClick }) {
 
 function Board({ isXNext, squares, onPlay }) {
   const winner = calculateWinner(squares);
+  const isDraw = squares.every((square) => square !== null);
   let status;
   if (winner) {
     status = "Winner: " + winner;
+  } else if (isDraw) {
+    status = "Draw!";
   } else {
     status = "Next player: " + (isXNext ? "X" : "O");
   }
@@ -49,8 +53,10 @@ function Board({ isXNext, squares, onPlay }) {
 }
 
 export default function Game() {
-  const [history, setHistory] = useState([Array(9).fill(null)]);
-  const [currentMove, setCurrentMove] = useState(0);
+  const history = useGameStore((state) => state.history);
+  const currentMove = useGameStore((state) => state.currentMove);
+  const setHistory = useGameStore((state) => state.setHistory);
+  const setCurrentMove = useGameStore((state) => state.setCurrentMove);
   const currentSquares = history[currentMove];
   const isXNext = currentMove % 2 === 0;
 

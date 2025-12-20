@@ -11,9 +11,9 @@
   "dependencies": {
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
-    "react-scripts": "^5.0.0"
+    "react-scripts": "^5.0.0",
+    "zustand": "^5.0.9"
   },
-  "devDependencies": {},
   "browserslist": {
     "production": [
       ">0.2%",
